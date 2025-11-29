@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GridBackgroundDemo } from "../components/GridBackgroundDemo";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -16,16 +17,18 @@ const Login = () => {
 
   return (
     <div className="grid sm:grid-cols-12 grid-cols-2 h-screen">
-      <div className="bg-black sm:col-span-7">
-        <span className="flex gap-3 m-4 mt-3 justify-between h-15">
+      {/* Left side */}
+      <div className="relative sm:col-span-7 overflow-hidden">
+        <GridBackgroundDemo />
+        <span className="relative flex gap-3 m-4 mt-3 justify-between h-15">
           <img src="logo.png" alt="logo-MoneyTracker-Pro" className="w-19" />
           <img src="title.png" alt="Title-MoneyTracker-Pro" className="w-50" />
         </span>
 
-        <h1 className="text-white text-5xl font-serif font-extrabold ml-10 mt-30">
+        <h1 className="text-5xl font-serif font-extrabold ml-10 mt-30 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent">
           Welcome!
         </h1>
-        <p className="text-white text-lg font-sans ml-11 mt-2">
+        <p className="text-lg font-sans ml-11 mt-2 bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent">
           <TypeAnimation
             sequence={[
               // Same substring at the start will only be typed out once, initially
@@ -47,6 +50,7 @@ const Login = () => {
         {/* <img src="login.png" alt="lady-computer" className="ml-10 w-120" /> */}
       </div>
 
+      {/* Right side */}
       <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-cover bg-center bg-black/20">
         <form className="backdrop-blur-lg bg-black/10 border border-black/20 shadow-xl rounded-3xl p-8 w-[350px]">
           <h1 className="text-center font-semibold text-3xl text-black drop-shadow-md">
