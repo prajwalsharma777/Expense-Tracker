@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { Lock, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Lock, Mail, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { GridBackgroundDemo } from "../components/GridBackgroundDemo";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(true);
+
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const handleChange = async (e) => {
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(data);
+    if (isLogin) {
+      navigate("/dashboard");
+    } else {
+      setIsLogin(!isLogin);
+      navigate("/");
+    }
   };
 
   return (
@@ -51,14 +66,32 @@ const Login = () => {
       </div>
 
       {/* Right side */}
-      <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-cover bg-center bg-black/20">
-        <form className="backdrop-blur-lg bg-black/10 border border-black/20 shadow-xl rounded-3xl p-8 w-[350px]">
+      <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-cover bg-center bg-black/30">
+        <form
+          onSubmit={handleSubmit}
+          className="backdrop-blur-lg bg-black/10 border border-black/20 shadow-xl rounded-3xl p-8 w-[350px]"
+        >
           <h1 className="text-center font-semibold text-3xl text-black drop-shadow-md">
-            Login
+            {isLogin ? "Login" : "Sign Up"}
           </h1>
 
+          {isLogin === false && (
+            <div className="flex items-center mt-6 w-full bg-black/20 border border-black/30 h-12 rounded-full overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+              <User className="text-black" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={data.name}
+                onChange={handleChange}
+                className="bg-transparent text-black placeholder-black/80 border-none outline-none ring-0 w-full"
+                required
+              />
+            </div>
+          )}
+
           {/* EMAIL */}
-          <div className="flex items-center mt-6 w-full bg-black/20 border border-black/30 h-12 rounded-full overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+          <div className="flex items-center mt-3 w-full bg-black/20 border border-black/30 h-12 rounded-full overflow-hidden pl-6 gap-2 backdrop-blur-sm">
             <Mail className="text-black" />
             <input
               type="email"
@@ -91,16 +124,19 @@ const Login = () => {
               type="submit"
               className="w-full h-11 font-medium text-black rounded-full bg-red-600 hover:bg-red-700 cursor-pointer transition-all duration-300 backdrop-blur-sm"
             >
-              Login
+              {isLogin ? "Login" : "Sign Up"}
             </button>
           </div>
 
           {/* LINK */}
+
           <p className="text-center text-black mt-3">
-            Don't have an account?
+            {isLogin ? "Don't have an account?" : "Already have an account?"}
             <Link
-              to="/dashboard"
-              className="text-blue-500 hover:text-blue-700 underline ml-1"
+              onClick={() => {
+                setIsLogin(!isLogin);
+              }}
+              className="text-blue-900 hover:text-blue-700 underline ml-1"
             >
               Click here
             </Link>
