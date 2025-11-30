@@ -21,8 +21,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
     if (isLogin) {
+      console.log(data);
       navigate("/dashboard");
     } else {
       setIsLogin(!isLogin);
@@ -40,7 +40,7 @@ const Login = () => {
           <img src="title.png" alt="Title-MoneyTracker-Pro" className="w-50" />
         </span>
 
-        <h1 className="text-5xl font-serif font-extrabold ml-10 mt-30 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold ml-10 mt-30 bg-gradient-to-b from-white to-neutral-500 bg-clip-text text-transparent">
           Welcome!
         </h1>
         <p className="text-lg font-sans ml-11 mt-2 bg-gradient-to-b from-white to-neutral-400 bg-clip-text text-transparent">
@@ -66,17 +66,14 @@ const Login = () => {
       </div>
 
       {/* Right side */}
-      <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-cover bg-center bg-black/30">
-        <form
-          onSubmit={handleSubmit}
-          className="backdrop-blur-lg bg-black/10 border border-black/20 shadow-xl rounded-3xl p-8 w-[350px]"
-        >
-          <h1 className="text-center font-semibold text-3xl text-black drop-shadow-md">
+      <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-cover bg-center bg-neutral-100">
+        <form onSubmit={handleSubmit} className="p-8 w-[350px]">
+          <h1 className="text-center font-bold text-4xl text-black drop-shadow-md">
             {isLogin ? "Login" : "Sign Up"}
           </h1>
 
           {isLogin === false && (
-            <div className="flex items-center mt-6 w-full bg-black/20 border border-black/30 h-12 rounded-full overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+            <div className="flex items-center mt-6 w-full bg-black/10 border border-black/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
               <User className="text-black" />
               <input
                 type="text"
@@ -91,7 +88,7 @@ const Login = () => {
           )}
 
           {/* EMAIL */}
-          <div className="flex items-center mt-3 w-full bg-black/20 border border-black/30 h-12 rounded-full overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+          <div className="flex items-center mt-3 w-full bg-black/10 border border-black/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
             <Mail className="text-black" />
             <input
               type="email"
@@ -105,7 +102,7 @@ const Login = () => {
           </div>
 
           {/* PASSWORD */}
-          <div className="flex items-center mt-3 w-full bg-black/20 border border-black/30 h-12 rounded-full overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+          <div className="flex items-center mt-3 w-full bg-black/10 border border-black/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
             <Lock className="text-black" />
             <input
               type="password"
@@ -122,7 +119,7 @@ const Login = () => {
           <div className="mt-5 w-full">
             <button
               type="submit"
-              className="w-full h-11 font-medium text-black rounded-full bg-red-600 hover:bg-red-700 cursor-pointer transition-all duration-300 backdrop-blur-sm"
+              className="w-full h-11 font-medium text-neutral-100 rounded-md bg-red-600 hover:bg-red-700 cursor-pointer transition-all duration-300 backdrop-blur-sm"
             >
               {isLogin ? "Login" : "Sign Up"}
             </button>
@@ -136,7 +133,7 @@ const Login = () => {
               onClick={() => {
                 setIsLogin(!isLogin);
               }}
-              className="text-blue-900 hover:text-blue-700 underline ml-1"
+              className="text-blue-700 hover:text-blue-900 underline ml-1"
             >
               Click here
             </Link>
