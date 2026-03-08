@@ -1,5 +1,6 @@
 import React from "react";
 import StatCard from "./StatCard";
+import { Calendar } from "../components/ui/calendar";
 
 const Dashboard = () => {
   return (
@@ -28,6 +29,9 @@ const Dashboard = () => {
           amount={156300}
           color="bg-gradient-to-br from-[#7f1d1d] to-[#ef4444]"
         />
+      </div>
+      <div className="flex items-center justify-center mt-15">
+        <Calendar className="w-200" />
       </div>
     </div>
   );
