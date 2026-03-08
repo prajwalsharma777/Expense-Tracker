@@ -5,11 +5,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="h-16 bg-[#1F1F1F] shadow-md border-0 flex justify-between items-center px-4 relative">
+    <div
+      onClick={() => {
+        setIsOpen(false);
+      }}
+      className="h-16 bg-[#1F1F1F] shadow-md border-0 flex justify-between items-center px-4 relative"
+    >
       <img src="title.png" alt="Title-MoneyTracker-Pro" className="h-10 ml-2" />
       <span className="m-4 mr-6">
         <Menu
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             setIsOpen(!isOpen);
           }}
           className="hover:cursor-pointer"

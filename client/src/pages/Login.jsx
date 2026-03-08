@@ -66,51 +66,51 @@ const Login = () => {
       </div>
 
       {/* Right side */}
-      <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-cover bg-center bg-neutral-100">
+      <div className="sm:col-span-5 flex justify-center items-center min-h-screen bg-gradient-to-br from-[#1a1a1a] via-[#2b2b2b] to-[#111111]">
         <form onSubmit={handleSubmit} className="p-8 w-[350px]">
-          <h1 className="text-center font-bold text-4xl text-black drop-shadow-md">
+          <h1 className="text-center font-bold text-4xl text-white drop-shadow-md">
             {isLogin ? "Login" : "Sign Up"}
           </h1>
 
           {isLogin === false && (
-            <div className="flex items-center mt-6 w-full bg-black/10 border border-black/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
-              <User className="text-black" />
+            <div className="flex items-center mt-6 w-full bg-white/10 border border-white/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+              <User className="text-white" />
               <input
                 type="text"
                 name="name"
                 placeholder="Name"
                 value={data.name}
                 onChange={handleChange}
-                className="bg-transparent text-black placeholder-black/80 border-none outline-none ring-0 w-full"
+                className="bg-transparent text-white placeholder-white/80 border-none outline-none ring-0 w-full"
                 required
               />
             </div>
           )}
 
           {/* EMAIL */}
-          <div className="flex items-center mt-3 w-full bg-black/10 border border-black/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
-            <Mail className="text-black" />
+          <div className="flex items-center mt-3 w-full bg-white/10 border border-white/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+            <Mail className="text-white" />
             <input
               type="email"
               name="email"
               value={data.email}
               placeholder="Email"
               onChange={handleChange}
-              className="bg-transparent text-black placeholder-black/80 border-none outline-none ring-0 w-full"
+              className="bg-transparent text-white placeholder-white/80 border-none outline-none ring-0 w-full"
               required
             />
           </div>
 
           {/* PASSWORD */}
-          <div className="flex items-center mt-3 w-full bg-black/10 border border-black/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
-            <Lock className="text-black" />
+          <div className="flex items-center mt-3 w-full bg-white/10 border border-white/30 h-12 rounded-md overflow-hidden pl-6 gap-2 backdrop-blur-sm">
+            <Lock className="text-white" />
             <input
               type="password"
               name="password"
               value={data.password}
               placeholder="Password"
               onChange={handleChange}
-              className="bg-transparent text-black placeholder-black/80 border-none outline-none ring-0 w-full"
+              className="bg-transparent text-white placeholder-white/80 border-none outline-none ring-0 w-full"
               required
             />
           </div>
@@ -127,7 +127,7 @@ const Login = () => {
 
           {/* LINK */}
 
-          <p className="text-center text-black mt-3">
+          <p className="text-center text-white mt-3">
             {isLogin ? "Don't have an account?" : "Already have an account?"}
             <Link
               onClick={() => {
